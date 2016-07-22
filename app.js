@@ -2,6 +2,21 @@ var express = require('express');
 var app = express();
 var cfenv = require('cfenv');
 var bodyParser = require('body-parser');
+var mongodb = require("mongodb");
+var ObjectID = mongodb.ObjectID;
+
+// Connection URL
+var url = 'mongodb://admin:v8twanzo@ds023455.mlab.com:23455/payschedule';
+// Use connect method to connect to the server
+var db;
+mongodb.MongoClient.connect(url, function(err, database) {
+  if (err) {
+    console.log(err);
+    process.exit(1);
+  }    
+  require('./api/user.js')(app,database,bodyParser,ObjectID);
+  console.log("Database connection ready");  
+});
 
 app.use(express.static(__dirname + '/public'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
