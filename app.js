@@ -23,6 +23,15 @@ app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/listUser', express.static(__dirname + '/public'));
 
 var appEnv = cfenv.getAppEnv();
+
+app.use(/* @callback */ function(req, res, next) {  
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
+
 app.listen(appEnv.port, '0.0.0.0', function() {
 	// print a message when the server starts listening
   console.log("server starting on " + appEnv.url);
