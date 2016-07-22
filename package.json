@@ -1,0 +1,17 @@
+{
+  "name": "nodejsangular2",
+  "version": "1.0.0",
+  "description": "teste angular2 ", 
+  "scripts": {    
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "repository": {},
+  "engines": {
+    "node": "4.x"
+  }
+}
