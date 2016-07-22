@@ -4,6 +4,7 @@ var cfenv = require('cfenv');
 var bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + '/public'));
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 var appEnv = cfenv.getAppEnv();
 app.listen(appEnv.port, '0.0.0.0', function() {
