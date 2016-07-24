@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
+import { User, UserService } from './service/service.user.component';
+import { HTTP_PROVIDERS } from '@angular/http';
+import { APP_ROUTER_PROVIDERS } from './app.routes';
 import { ROUTER_DIRECTIVES } from '@angular/router';
+import { UserListComponent } from './user/user.list.component'
+import 'rxjs/Rx'; // load the full rxjs
 
 @Component({
     selector: 'my-app',
-    template: `
-        <div class="container">
-        <h1>Component Router</h1>
-        <nav>
-           <a [routerLink]="['/loginUser']">Login</a>
-           <a [routerLink]="['/listUser']">List User</a>           
-        </nav>                         
-    <router-outlet></router-outlet></div>`,
-    directives: [ROUTER_DIRECTIVES]
+    templateUrl: 'app/app.component.html',    
+    providers: [
+    HTTP_PROVIDERS,
+    APP_ROUTER_PROVIDERS,
+    UserService
+  ],
+  directives: [ROUTER_DIRECTIVES]    
 })
 
-export class AppComponent {  
-  
+export class AppComponent { 
  }

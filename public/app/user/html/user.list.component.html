@@ -1,6 +1,5 @@
-<h3 class="ui block header">
-    {{title}}
-</h3>
-<div *ngFor='let value of values'>
-    {{ value }}
-</div>
+<ul>
+  <li *ngFor="let user of users | async">
+    {{ user.name }}
+  </li>
+</ul>
