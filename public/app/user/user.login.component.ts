@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 export class UserLoginComponent {
     title = 'Welcome to Solar System Planets !!';
     values: number[] = [1, 2, 3];
+    test : string;
+    
+    onClick(value: number){
+        //console.log("cliked" + value);
+        this.test ="Cliked(" + value+")";
+    }
 }
