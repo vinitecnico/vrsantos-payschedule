@@ -3,10 +3,10 @@
 Node js(api mongodb) and Angular 2
 https://vrsantos-payschedule.herokuapp.com/
 
-install references
+#install references
 
 npm install
 
-run project
+#run project
 
 npm start
