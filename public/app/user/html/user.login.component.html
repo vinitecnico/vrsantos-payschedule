@@ -5,4 +5,16 @@
         <a (click)="onClick(value)">{{value}}</a>
     </li>
 </ul>
-{{test}}
+<select class="form-control">
+  <option *ngFor="let value of values">{{value}}</option>  
+</select>
+<br>
+<input type="text" #myImput class="form-control" placeholder="Text input">
+<br>
+<button (click)="onClicktest(myImput.value)" class="btn btn-primary">teste</button>
+<br><br>
+<p class="bg-success">{{test}}</p>
+
+
+<input type="text" id="typetext" [(ngModel)]="user.name" />
+<button (click)="test2(user)" class="btn btn-primary">teste</button>{{user | json}}

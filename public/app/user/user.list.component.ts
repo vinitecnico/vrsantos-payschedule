@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { provideRouter, RouterConfig } from '@angular/router';
-import { User, UserService } from '../service/service.user.component';
+import { UserService } from '../service/service.user.component';
+import { User} from '../model/user.model';
 
 @Component({    
     templateUrl: 'app/user/html/user.list.component.html'
