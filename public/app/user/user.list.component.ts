@@ -2,9 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { provideRouter, RouterConfig } from '@angular/router';
 import { UserService } from '../service/service.user.component';
 import { User} from '../model/user.model';
+import {titleComponent} from "./user.title.component";
 
 @Component({    
-    templateUrl: 'app/user/html/user.list.component.html'
+    selector: 'userList-component',
+    templateUrl: 'app/user/html/user.list.component.html',
+    directives: [titleComponent]
 })
 
 export class UserListComponent implements OnInit{
@@ -18,5 +21,12 @@ export class UserListComponent implements OnInit{
    getusers(value?: string) {
      this.users = this._userService.getUsers(value);
    }
+
+   getlike(value?: string) {
+       if(value !="")
+        this.users = this._userService.getlike(value);
+       else
+         this.getusers();     
+    }
 
 }
