@@ -14,6 +14,7 @@ export class UserLoginComponent {
     values: number[] = [1, 2, 3];
     test : string;    
      user = new User();
+     users: Promise<User[]>;
 
     constructor(private _userService: UserService) { }
     
@@ -28,5 +29,9 @@ export class UserLoginComponent {
 
     test2(user : User){
         console.log(user);
+    }
+
+    getlike(value?: string) {
+       this.users = this._userService.getlike(value);      
     }
 }

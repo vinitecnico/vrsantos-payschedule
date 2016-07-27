@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-
+import { User} from '../model/user.model';
 import { CONFIG } from '../config';
 
 let ApiPath = CONFIG.baseUrls.ApiPath;
-
-export class User {
-  constructor(public _id: string, public name: string, public email: string,public type: string) { }
-}
 
 @Injectable()
 export class UserService {
   constructor(private _http: Http) { }
 
-  getUsers(value?: string) {
+   _user = new User();
+  
+   getUsers(value?: string) {
     return this._http.get(ApiPath+'user')
+      .map((response: Response) => <User[]>response.json())
+      .toPromise()
+      .catch(this.handleError);
+  }
+
+  getlike(value?: string) {
+    return this._http.get(ApiPath+'user/'+value+'/search')
       .map((response: Response) => <User[]>response.json())
       .toPromise()
       .catch(this.handleError);

@@ -18,3 +18,22 @@
 
 <input type="text" id="typetext" [(ngModel)]="user.name" />
 <button (click)="test2(user)" class="btn btn-primary">teste</button>{{user | json}}
+<br><br>
+<input #text (keyup)="getlike(text.value)">
+<br><br>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users | async">
+        <td>{{ user._id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+      </tr>
+    </tbody>
+</table>   

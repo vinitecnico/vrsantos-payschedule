@@ -1,4 +1,5 @@
 module.exports = function (app,db, bodyParser,ObjectID) {    
+     
      app.post('/api/User', function(req, res){       
         var newUser = req.body;
         newUser.createDate = new Date();
@@ -12,6 +13,19 @@ module.exports = function (app,db, bodyParser,ObjectID) {
         console.log("Post Create User: /User");
         console.log(newUser);
      });
+
+     //http://localhost:6001/api/user/test/filter
+    app.get("/api/user/:name/search", function(req, res) {
+        console.log(":name/search "+ req.params.name);
+         db.collection('payschedules').find({"name": {'$regex': req.params.name}}).toArray(function(err, docs) {
+            if (err) {
+                handleError(res, err.message, "Failed to get contacts.");
+            } else {
+                res.status(200).json(docs);   
+                console.log(":name/search "+ 200);         
+            }
+        });
+    });
 
     //api Get user
     app.get('/api/User', function (req, res) {
@@ -71,5 +85,6 @@ module.exports = function (app,db, bodyParser,ObjectID) {
             res.status(200).end();
             }
         });
-    });
+    });   
+
 }
