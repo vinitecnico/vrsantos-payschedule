@@ -17,6 +17,6 @@
 <br><br>
 <p class="bg-success">{{test}}</p>
 <input type="text" id="typetext" [(ngModel)]="user.name" />
-<button (click)="test2(user)" class="btn btn-primary">teste</button>{{user | json}}
+<button (click)="test2(user)" class="btn btn-primary" [disabled]="!user.name">teste</button>{{user | json}}
 <br><br>
 <userList-component></userList-component>
