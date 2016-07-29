@@ -1,9 +1,9 @@
 {
   "name": "nodejsangular2",
   "version": "1.0.0",
-  "description": "teste angular2 ", 
-  "scripts": {    
-    "start": "tsc && concurrently  \"node app.js\" \"npm run tsc:w\" ",
+  "description": "teste angular2 ",
+  "scripts": {
+    "start": "tsc && concurrently  \"node app.js\" \"npm run tsc:w\"  \"gulp sass:watch\" ",
     "lite": "lite-server",
     "postinstall": "typings install",
     "tsc": "tsc",
@@ -37,9 +37,19 @@
     "concurrently": "^2.0.0",
     "lite-server": "^2.2.0",
     "typescript": "^1.8.10",
-    "typings":"^1.0.4"
+    "typings": "^1.0.4",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^1.5.4",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.9"
   },
-   "devDependencies": {    
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^1.5.4",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.9"
   },
   "repository": {},
   "engines": {
