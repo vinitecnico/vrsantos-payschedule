@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "teste angular2 ",
   "scripts": {
-    "start": "tsc && concurrently  \"node app.js\" \"npm run tsc:w\"  \"gulp sass:watch\" ",
+    "start": "tsc && concurrently  \"node app.js\" \"npm run tsc:w\"  \"gulp sass\" ",
     "lite": "lite-server",
     "postinstall": "typings install",
     "tsc": "tsc",
